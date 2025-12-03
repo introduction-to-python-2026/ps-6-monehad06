@@ -1,13 +1,15 @@
 def create_codon_dict(file_path):
+    codon2aa = {}
+    # Use the provided file_path argument instead of hardcoding
+    file_text = open(file_path,"r")
+    rows = file_text.readlines()
+    file_text.close()
 
-    codon_dict = {}  # מילון ריק
-    with open(file_path, 'r') as file:  # פותחים את הקובץ
-        rows = file.readlines()          # קוראים את כל השורות
-
-    for row in rows:
-        cells = row.strip().split('\t')  # מסירים רווחים ו-\n ומפרקים לפי טאבים
-        codon = cells[0]                 # הקודון הוא התא הראשון
-        amino_acid = cells[2]            # הקיצור של חומצת האמינו הוא התא השלישי
-        codon_dict[codon] = amino_acid   # מוסיפים למילון
-
-  return codon_dict
+    for r in rows:
+      parts = r.strip().split('\t')
+      if len(parts) >= 3:
+       key = parts[0]
+       value = parts[2]
+       codon2aa[key] = value
+    # The function needs to return the dictionary, not just print it.
+    return codon2aa
