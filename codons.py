@@ -1,6 +1,6 @@
 def create_codon_dict(file_path):
 
-    codon_dict = {}  # מילון ריק
+    codon_dict = {}  
     with open(file_path, 'r') as file: 
         rows = file.readlines()          
 
