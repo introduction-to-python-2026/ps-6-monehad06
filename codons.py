@@ -10,4 +10,4 @@ def create_codon_dict(file_path):
         amino_acid = cells[2]            # הקיצור של חומצת האמינו הוא התא השלישי
         codon_dict[codon] = amino_acid   # מוסיפים למילון
 
- return codon_dic
+  return codon_dict
